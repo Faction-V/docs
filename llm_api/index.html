@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Llm api - Capitol.AI</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Capitol.AI</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">CAPITOL.ai Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">Llm api</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../npm/" class="nav-link">NPM components</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../user_api/" class="nav-link">Capitol LLM API Integration Overview</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../npm/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#llm-api-overview" class="nav-link">LLM API Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#llm-api-endpoints" class="nav-link">LLM API Endpoints</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="llm-api-overview">LLM API Overview</h2>
+<p>The CAPITOL.ai LLM API provides powerful tools for creating and managing stories. You can:</p>
+<ol>
+<li><strong>Initiate Report Generation:</strong> Create reports with custom configurations.</li>
+<li><strong>Remix Existing Content:</strong> Modify existing stories with new inputs.</li>
+<li><strong>Cancel Processes:</strong> Stop ongoing content generation tasks.</li>
+<li><strong>Convert Content:</strong> Transform stories into different formats.</li>
+<li><strong>Manage Events:</strong> Create, retrieve, and reorder story-related events.</li>
+</ol>
+<p>For a complete list of endpoints and detailed documentation, visit the <a href="http://acc8d77969e5b4abe95601e23fa5e6b0-1147549537.us-east-1.elb.amazonaws.com/docs">Swagger API Documentation</a>.</p>
+<h2 id="llm-api-endpoints">LLM API Endpoints</h2>
+<h3 id="1-llm">1. <code>/llm</code></h3>
+<ul>
+<li><strong>Method:</strong> <code>POST</code></li>
+<li><strong>Summary:</strong> Initiate Report Generation</li>
+<li><strong>Description:</strong> Starts the process of generating a report using the LLM based on the given parameters.</li>
+<li><strong>Request Body:</strong></li>
+<li><code>params</code>: General parameters for the report.</li>
+<li><code>llm_params</code>: Specific LLM configuration settings.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Report generation initiated successfully.</li>
+<li><code>422</code>: Validation error.</li>
+</ul>
+<h3 id="2-remix">2. <code>/remix</code></h3>
+<ul>
+<li><strong>Method:</strong> <code>POST</code></li>
+<li><strong>Summary:</strong> Remix Content</li>
+<li><strong>Description:</strong> Allows remixing of an existing story with new parameters and returns the result immediately.</li>
+<li><strong>Request Body:</strong></li>
+<li><code>external_id</code>: ID of the story to remix.</li>
+<li><code>user_prompt</code>: Remix instructions.</li>
+<li><code>story_plan</code>: Current story plan.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Remix operation completed successfully.</li>
+<li><code>422</code>: Validation error.</li>
+</ul>
+<h3 id="3-cancel">3. <code>/cancel</code></h3>
+<ul>
+<li><strong>Method:</strong> <code>POST</code></li>
+<li><strong>Summary:</strong> Cancel Content Generation</li>
+<li><strong>Description:</strong> Cancels an ongoing content generation process.</li>
+<li><strong>Request Body:</strong></li>
+<li><code>external_id</code>: ID of the content generation process to cancel.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Cancelation successful.</li>
+<li><code>422</code>: Validation error.</li>
+</ul>
+<h3 id="4-turn_into">4. <code>/turn_into</code></h3>
+<ul>
+<li><strong>Method:</strong> <code>POST</code></li>
+<li><strong>Summary:</strong> Convert Content</li>
+<li><strong>Description:</strong> Converts existing content into another form or type.</li>
+<li><strong>Request Body:</strong></li>
+<li><code>external_id</code>: ID of the content to convert.</li>
+<li><code>draft_id</code>: ID of the draft being edited.</li>
+<li><code>output_type</code>: Desired output type.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Conversion successful.</li>
+<li><code>422</code>: Validation error.</li>
+</ul>
+<h3 id="5-events">5. <code>/events</code></h3>
+<ul>
+<li><strong>Method:</strong> <code>GET</code></li>
+<li><strong>Summary:</strong> Retrieve Events</li>
+<li><strong>Description:</strong> Fetches events related to a specific external ID.</li>
+<li><strong>Parameters:</strong></li>
+<li><code>external_id</code>: Query parameter for the ID to retrieve events.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Events retrieved successfully.</li>
+<li>
+<p><code>422</code>: Validation error.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>POST</code></p>
+</li>
+<li><strong>Summary:</strong> Create Event</li>
+<li><strong>Description:</strong> Creates a new event related to content generation.</li>
+<li><strong>Request Body:</strong> </li>
+<li>Event creation parameters.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Event creation successful.</li>
+<li><code>422</code>: Validation error.</li>
+</ul>
+<h3 id="6-reorderexternal_id">6. <code>/reorder/{external_id}</code></h3>
+<ul>
+<li><strong>Method:</strong> <code>PUT</code></li>
+<li><strong>Summary:</strong> Reorder Events</li>
+<li><strong>Description:</strong> Reorders events associated with a specific external ID.</li>
+<li><strong>Request Body:</strong></li>
+<li><code>events</code>: List of event IDs in the desired order.</li>
+<li><strong>Responses:</strong></li>
+<li><code>200</code>: Events reordered successfully.</li>
+<li><code>422</code>: Validation error.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
